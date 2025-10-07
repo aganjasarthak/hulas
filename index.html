@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hulas Group AI Assistant</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{
+  font-family:'Segoe UI',Roboto,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  transition:background .3s,color .3s;
+  height:100vh;display:flex;flex-direction:column;
+}
+:root{
+  --bg:#ffffff;
+  --text:#0d0d0d;
+  --border:#e5e5e5;
+  --card:#f8f8f8;
+  --input-bg:#ffffff;
+  --btn-bg:#0d0d0d;
+  --btn-text:#ffffff;
+}
+.dark{
+  --bg:#0d0d0d;
+  --text:#ececec;
+  --border:#2d2d2d;
+  --card:#1a1a1a;
+  --input-bg:#2d2d2d;
+  --btn-bg:#ececec;
+  --btn-text:#0d0d0d;
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:1rem 2rem;
+  border-bottom:1px solid var(--border);
+  background:var(--bg);
+}
+.logo-container{
+  display:flex;
+  align-items:center;
+  gap:1.5rem;
+}
+.logo{
+  height:120px;
+  width:auto;
+  transition:opacity .3s;
+}
+.logo-text{
+  font-size:1.7rem;
+  font-weight:600;
+}
+.actions{display:flex;gap:1rem;}
+button{
+  cursor:pointer;border:none;border-radius:8px;
+  padding:0.5rem 1rem;font-weight:500;transition:.2s;
+}
+.new-chat{
+  background:var(--btn-bg);color:var(--btn-text);
+}
+.new-chat:hover{opacity:.9;}
+
+/* 🌗 Stylish Toggle Button */
+.theme-toggle{
+  position:relative;
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  background:var(--card);
+  border:1px solid var(--border);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:all 0.3s ease;
+  font-size:1.2rem;
+  box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+.theme-toggle:hover{
+  transform:scale(1.1);
+  background:var(--input-bg);
+}
+.theme-toggle .icon{
+  transition:opacity 0.3s ease, transform 0.4s ease;
+  position:absolute;
+}
+.theme-toggle .moon{opacity:1;transform:rotate(0deg);}
+.theme-toggle .sun{opacity:0;transform:rotate(90deg);}
+.dark .theme-toggle .moon{opacity:0;transform:rotate(-90deg);}
+.dark .theme-toggle .sun{opacity:1;transform:rotate(0deg);}
+
+main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:2rem;
+}
+.welcome{
+  transition:opacity 0.5s ease, visibility 0.5s ease;
+}
+.welcome.hide{
+  opacity:0;
+  visibility:hidden;
+}
+.welcome h1{font-size:2.6rem;margin-bottom:1rem;}
+.welcome p{
+  color:var(--text);
+  font-size:1.1rem;
+  max-width:700px;
+  line-height:1.6;
+}
+footer{
+  border-top:1px solid var(--border);
+  background:var(--bg);
+  padding:1rem 2rem;
+}
+.input-area{
+  max-width:900px;
+  margin:0 auto;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+textarea{
+  flex:1;
+  padding:1rem 3.5rem 1rem 1rem;
+  border:1px solid var(--border);
+  border-radius:0.75rem;
+  background:var(--input-bg);
+  color:var(--text);
+  resize:none;
+  font-size:1rem;
+  height:60px;
+  transition:0.2s;
+}
+textarea:focus{outline:none;border-color:var(--btn-bg);}
+.send{
+  position:absolute;
+  right:0.5rem;
+  background:var(--btn-bg);
+  color:var(--btn-text);
+  border:none;
+  width:40px;
+  height:40px;
+  border-radius:0.5rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:0.2s;
+}
+.send:hover{opacity:.9;}
+.hint{
+  margin-top:0.75rem;
+  font-size:0.8rem;
+  color:gray;
+  text-align:center;
+}
+@media(max-width:600px){
+  .logo{height:90px;}
+  .logo-text{font-size:1.4rem;}
+  .welcome h1{font-size:2rem;}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+    <img src="1black.png" class="logo light-logo" alt="Hulas Group Logo">
+    <img src="1white.png" class="logo dark-logo" alt="Hulas Group Logo" style="display:none;">
+    <img src="2black.png" class="logo light-logo2" alt="Hulas Group Logo 2">
+    <img src="2white.png" class="logo dark-logo2" alt="Hulas Group Logo 2" style="display:none;">
+    <span class="logo-text">Hulas AI Assistant</span>
+  </div>
+  <div class="actions">
+    <button class="theme-toggle" id="themeToggle">
+      <span class="icon moon">🌙</span>
+      <span class="icon sun">☀️</span>
+    </button>
+  <button class="new-chat" onclick="window.location.href='index.html'">+ New Chat</button>
+
+  </div>
+</header>
+
+<main>
+  <div class="welcome" id="welcome">
+    <h1>Welcome to Hulas AI Assistant</h1>
+    <p>
+      Your intelligent companion for business insights, automation, and productivity. 
+      Ask your query directly. <br><br>
+      Assembled by: Sarthak Aganja, Civil Engineer
+    </p>
+  </div>
+</main>
+
+
+<footer>
+  <div class="input-area">
+    <textarea id="userInput" placeholder="Message Hulas AI Assistant..."></textarea>
+    <button class="send" id="sendBtn">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+      </svg>
+    </button>
+  </div>
+  <div class="hint">Powered by Hulas Group AI Technology</div>
+</footer>
+
+<script>
+const themeBtn=document.getElementById('themeToggle');
+const body=document.body;
+const lightLogo=document.querySelector('.light-logo');
+const darkLogo=document.querySelector('.dark-logo');
+const lightLogo2=document.querySelector('.light-logo2');
+const darkLogo2=document.querySelector('.dark-logo2');
+const welcome=document.getElementById('welcome');
+const sendBtn=document.getElementById('sendBtn');
+const userInput=document.getElementById('userInput');
+
+if(localStorage.getItem('theme')==='dark'){
+  body.classList.add('dark');
+  lightLogo.style.display='none';
+  darkLogo.style.display='block';
+  lightLogo2.style.display='none';
+  darkLogo2.style.display='block';
+}
+
+themeBtn.onclick=()=>{
+  body.classList.toggle('dark');
+  const darkMode=body.classList.contains('dark');
+  lightLogo.style.display=darkMode?'none':'block';
+  darkLogo.style.display=darkMode?'block':'none';
+  lightLogo2.style.display=darkMode?'none':'block';
+  darkLogo2.style.display=darkMode?'block':'none';
+  localStorage.setItem('theme',darkMode?'dark':'light');
+};
+
+// 🟢 Hide welcome message after first send
+let firstMessageSent=false;
+sendBtn.onclick=()=>{
+  const msg=userInput.value.trim();
+  if(msg && !firstMessageSent){
+    welcome.classList.add('hide');
+    firstMessageSent=true;
+  }
+  // (You can add your send message logic here)
+};
+</script>
+<script type="module" src="ai.js"></script>
+
+</body>
+</html>
