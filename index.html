@@ -114,6 +114,14 @@ main{
   font-size:1.1rem;
   max-width:700px;
   line-height:1.6;
+  margin-bottom:1rem;
+}
+.welcome img{
+  margin-top:1rem;
+  width:180px;
+  height:auto;
+  border-radius:12px;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
 }
 footer{
   border-top:1px solid var(--border);
@@ -183,7 +191,6 @@ textarea:focus{outline:none;border-color:var(--btn-bg);}
       <span class="icon sun">☀️</span>
     </button>
   <button class="new-chat" onclick="window.location.href='index.html'">+ New Chat</button>
-
   </div>
 </header>
 
@@ -191,13 +198,13 @@ textarea:focus{outline:none;border-color:var(--btn-bg);}
   <div class="welcome" id="welcome">
     <h1>Welcome to Hulas AI Assistant</h1>
     <p>
-      Your intelligent companion for business insights, automation, and productivity. 
-      Ask your query directly. <br><br>
-      Assembled by: Sarthak Aganja, Civil Engineer
+      Your intelligent companion for business insights, automation, and productivity.<br>
+      Ask your query directly.
     </p>
+    <p><strong>Assembled by:</strong> Sarthak Aganja, Civil Engineer</p>
+    <img src="image2.png" alt="Hulas Assistant Illustration">
   </div>
 </main>
-
 
 <footer>
   <div class="input-area">
@@ -222,6 +229,7 @@ const welcome=document.getElementById('welcome');
 const sendBtn=document.getElementById('sendBtn');
 const userInput=document.getElementById('userInput');
 
+// 🔘 Apply saved theme
 if(localStorage.getItem('theme')==='dark'){
   body.classList.add('dark');
   lightLogo.style.display='none';
@@ -230,6 +238,7 @@ if(localStorage.getItem('theme')==='dark'){
   darkLogo2.style.display='block';
 }
 
+// 🌗 Toggle theme
 themeBtn.onclick=()=>{
   body.classList.toggle('dark');
   const darkMode=body.classList.contains('dark');
@@ -240,7 +249,7 @@ themeBtn.onclick=()=>{
   localStorage.setItem('theme',darkMode?'dark':'light');
 };
 
-// 🟢 Hide welcome message after first send
+// 🟢 Hide welcome section after first message
 let firstMessageSent=false;
 sendBtn.onclick=()=>{
   const msg=userInput.value.trim();
@@ -248,10 +257,10 @@ sendBtn.onclick=()=>{
     welcome.classList.add('hide');
     firstMessageSent=true;
   }
-  // (You can add your send message logic here)
+  // Add your AI send message logic here
 };
 </script>
-<script type="module" src="ai.js"></script>
 
+<script type="module" src="ai.js"></script>
 </body>
 </html>
