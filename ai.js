@@ -50,7 +50,7 @@ async function sendMessage() {
 
   try {
     const response = await fetch(
-      "https://tiny-base-e7b8.sarthak-aganja12345.workers.dev/chat",
+      "https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -81,3 +81,4 @@ document.getElementById("userInput").addEventListener("keydown", (e) => {
     sendMessage();
   }
 });
+
