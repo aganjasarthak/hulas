@@ -23,8 +23,8 @@ body{
   --border:#e5e5e5;
   --card:#f8f8f8;
   --input-bg:#ffffff;
-  --btn-bg:#0d0d0d;
-  --btn-text:#ffffff;
+  --btn-bg:#0d0d0d;   /* button base background (black) */
+  --btn-text:#ffffff; /* button base text color (white) */
   --header-height:84px;
   --gutter:1rem;
 }
@@ -34,7 +34,7 @@ body{
   --border:#2d2d2d;
   --card:#1a1a1a;
   --input-bg:#2d2d2d;
-  --btn-bg:#ececec;
+  --btn-bg:#ececec;   /* reverse in dark mode */
   --btn-text:#0d0d0d;
 }
 /* Header */
@@ -51,8 +51,26 @@ header{
 .actions{display:flex;gap:.6rem;align-items:center}
 button{cursor:pointer;border:none;border-radius:10px;padding:.55rem .9rem;font-weight:600;transition:transform .12s ease,opacity .12s ease}
 button:active{transform:translateY(1px)}
-.new-chat{background:transparent;color:var(--text);border:1px solid var(--border);padding:.45rem .7rem;border-radius:8px;font-size:0.95rem}
-.new-chat:hover{background:rgba(0,0,0,0.04);opacity:1}
+
+/* ✅ Updated New Chat Button */
+.new-chat {
+  background: var(--btn-text);       /* white in light mode, black in dark mode */
+  color: var(--btn-bg);              /* black in light mode, white in dark mode */
+  border: 1px solid var(--border);
+  padding: .65rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: 500;
+  height: 48px;
+  transition: background .25s, color .25s, opacity .25s;
+}
+.new-chat:hover {
+  background: var(--btn-bg);         /* reverse background */
+  color: var(--btn-text);            /* reverse text color */
+  opacity: 1;
+}
+
 /* Theme toggle */
 .theme-toggle{
   position:relative;width:44px;height:44px;border-radius:50%;background:var(--card);border:1px solid var(--border);
@@ -104,7 +122,7 @@ textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
   .logo-text{font-size:1rem}
   .logo-container{gap:.75rem}
   .actions{gap:.5rem}
-  .new-chat{padding:.45rem .7rem;font-size:.9rem}
+  .new-chat{padding:.55rem .9rem;font-size:.95rem;height:44px}
   .welcome h1{font-size:1.6rem}
   .welcome p{font-size:0.98rem}
   .welcome img{width:170px}
@@ -113,14 +131,13 @@ textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 }
 
 @media (max-width:520px){
-  /* Stack header: logo left, controls become compact */
   header{align-items:center}
   .logo{height:60px}
   .logo-container{gap:.6rem}
   .logo-text{font-size:0.95rem}
   .actions{gap:.4rem}
   .theme-toggle{width:40px;height:40px}
-  .new-chat{padding:.45rem .6rem;font-size:0.88rem}
+  .new-chat{padding:.5rem .75rem;font-size:.9rem;height:42px}
   main{padding:1.2rem}
   .welcome h1{font-size:1.4rem}
   .welcome p{font-size:0.95rem}
@@ -131,7 +148,6 @@ textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 }
 
 @media (max-width:400px){
-  /* Very small screens: compress further and allow textarea to expand */
   .logo{height:52px}
   .logo-text{display:none}
   .welcome img{width:120px}
@@ -157,7 +173,7 @@ button:focus, .theme-toggle:focus, .send:focus, .new-chat:focus{outline:3px soli
       <span class="icon moon">🌙</span>
       <span class="icon sun">☀️</span>
     </button>
-  <button class="new-chat" onclick="window.location.href='index.html'">New Chat</button>
+    <button class="new-chat" onclick="window.location.href='index.html'">+ New Chat</button>
   </div>
 </header>
 
@@ -168,7 +184,7 @@ button:focus, .theme-toggle:focus, .send:focus, .new-chat:focus{outline:3px soli
       Your intelligent companion for business insights, automation, and productivity.<br>
       Ask your query directly.
     </p>
-    <p><strong>Assembled by:</strong> Sarthak Aganja, Civil Engineer</p>
+    <p><strong>Assembled by:</strong> Sarthak Aganja</p>
     <img src="image2.png" alt="Hulas Assistant Illustration">
   </div>
 </main>
@@ -215,7 +231,7 @@ sendBtn.addEventListener('click',()=>{
   // Add your AI send message logic here
 });
 
-// improve UX: allow Enter+Shift for newline, Enter to send on mobile (keeps behavior minimal)
+// Enter = send, Shift+Enter = newline
 userInput.addEventListener('keydown',(e)=>{
   if(e.key==='Enter' && !e.shiftKey){
     e.preventDefault();
