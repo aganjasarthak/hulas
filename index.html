@@ -17,14 +17,20 @@ body{
   min-height:100vh;display:flex;flex-direction:column;
   -webkit-font-smoothing:antialiased;text-size-adjust:100%;
 }
+
+/* Fluid typography for all text except welcome section */
+html {
+  font-size: clamp(14px, 1.8vw, 17px);
+}
+
 :root{
   --bg:#ffffff;
   --text:#0d0d0d;
   --border:#e5e5e5;
   --card:#f8f8f8;
   --input-bg:#ffffff;
-  --btn-bg:#0d0d0d;   /* button base background (black) */
-  --btn-text:#ffffff; /* button base text color (white) */
+  --btn-bg:#0d0d0d;
+  --btn-text:#ffffff;
   --header-height:84px;
   --gutter:1rem;
 }
@@ -34,9 +40,10 @@ body{
   --border:#2d2d2d;
   --card:#1a1a1a;
   --input-bg:#2d2d2d;
-  --btn-bg:#ececec;   /* reverse in dark mode */
+  --btn-bg:#ececec;
   --btn-text:#0d0d0d;
 }
+
 /* Header */
 header{
   display:flex;align-items:center;justify-content:space-between;
@@ -54,8 +61,8 @@ button:active{transform:translateY(1px)}
 
 /* ✅ Updated New Chat Button */
 .new-chat {
-  background: var(--btn-text);       /* white in light mode, black in dark mode */
-  color: var(--btn-bg);              /* black in light mode, white in dark mode */
+  background: var(--btn-text);
+  color: var(--btn-bg);
   border: 1px solid var(--border);
   padding: .65rem 1rem;
   border-radius: 10px;
@@ -66,8 +73,8 @@ button:active{transform:translateY(1px)}
   transition: background .25s, color .25s, opacity .25s;
 }
 .new-chat:hover {
-  background: var(--btn-bg);         /* reverse background */
-  color: var(--btn-text);            /* reverse text color */
+  background: var(--btn-bg);
+  color: var(--btn-text);
   opacity: 1;
 }
 
@@ -86,20 +93,48 @@ button:active{transform:translateY(1px)}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2.25rem var(--gutter);}
 .welcome{transition:opacity .5s ease,visibility .5s ease;max-width:900px}
 .welcome.hide{opacity:0;visibility:hidden;height:0;padding:0;margin:0}
+/* Keep welcome section font size fixed as before */
 .welcome h1{font-size:2.4rem;margin-bottom:.6rem}
 .welcome p{color:var(--text);font-size:1.05rem;max-width:700px;line-height:1.6;margin:0 auto .9rem}
 .welcome img{margin-top:1rem;width:240px;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
 
+/* ✅ Response text (AI output placeholder for future use) */
+.response {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.25rem;
+  margin: 1rem auto;
+  max-width: 900px;
+  text-align: left;
+  white-space: pre-wrap;
+}
+
 /* Footer / Input area */
 footer{border-top:1px solid var(--border);background:var(--bg);padding:1rem var(--gutter)}
 .input-area{max-width:1100px;margin:0 auto;position:relative;display:flex;align-items:center;gap:.6rem;padding:0 .25rem}
-textarea{flex:1;padding:1rem 3.75rem 1rem 1rem;border:1px solid var(--border);border-radius:12px;background:var(--input-bg);color:var(--text);resize:none;font-size:1rem;height:64px;transition:box-shadow .15s;border-radius:12px}
+textarea{
+  flex:1;
+  padding:1rem 3.75rem 1rem 1rem;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--input-bg);
+  color:var(--text);
+  resize:none;
+  font-size:1rem;
+  height:64px;
+  transition:box-shadow .15s;
+  line-height:1.5;
+}
 textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 .send{position:absolute;right:.5rem;background:var(--btn-bg);color:var(--btn-text);border:none;width:48px;height:48px;border-radius:10px;display:flex;align-items:center;justify-content:center}
 .send:hover{opacity:.95}
 .hint{margin-top:.6rem;font-size:0.82rem;color:gray;text-align:center}
 
-/* Secondary logos (hide/show by CSS rather than inline styles) */
+/* Secondary logos */
 .light-logo{display:block}
 .dark-logo{display:none}
 .light-logo2{display:block}
@@ -109,28 +144,30 @@ textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 .dark .light-logo2{display:none}
 .dark .dark-logo2{display:block}
 
-/* Responsive behavior */
+/* Responsive typography adjustments */
 @media (max-width:900px){
   .logo{height:84px}
-  .welcome h1{font-size:2rem}
   .welcome img{width:200px}
+  .response{font-size:0.97rem}
+  textarea{font-size:0.97rem}
 }
 
 @media (max-width:700px){
+  html { font-size: clamp(13px, 2.5vw, 15px); }
   header{padding:0.6rem 0.9rem}
   .logo{height:72px}
   .logo-text{font-size:1rem}
   .logo-container{gap:.75rem}
   .actions{gap:.5rem}
   .new-chat{padding:.55rem .9rem;font-size:.95rem;height:44px}
-  .welcome h1{font-size:1.6rem}
-  .welcome p{font-size:0.98rem}
   .welcome img{width:170px}
-  textarea{height:72px;font-size:0.98rem}
+  textarea{height:72px;font-size:0.96rem}
+  .response{font-size:0.95rem}
   .send{width:44px;height:44px;right:.45rem}
 }
 
 @media (max-width:520px){
+  html { font-size: clamp(12.5px, 3vw, 14.5px); }
   header{align-items:center}
   .logo{height:60px}
   .logo-container{gap:.6rem}
@@ -139,19 +176,20 @@ textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
   .theme-toggle{width:40px;height:40px}
   .new-chat{padding:.5rem .75rem;font-size:.9rem;height:42px}
   main{padding:1.2rem}
-  .welcome h1{font-size:1.4rem}
-  .welcome p{font-size:0.95rem}
   .welcome img{width:140px}
   .input-area{padding:0;width:100%}
-  textarea{height:72px;padding:0.85rem 3.6rem 0.85rem 0.9rem;font-size:0.98rem}
+  textarea{height:72px;padding:0.85rem 3.6rem 0.85rem 0.9rem;font-size:0.95rem}
+  .response{font-size:0.94rem}
   .send{right:.45rem}
 }
 
 @media (max-width:400px){
+  html { font-size: clamp(12px, 3.5vw, 14px); }
   .logo{height:52px}
   .logo-text{display:none}
   .welcome img{width:120px}
-  textarea{height:80px;font-size:0.95rem;padding:0.8rem 3.6rem 0.8rem 0.8rem}
+  textarea{height:80px;font-size:0.94rem;padding:0.8rem 3.6rem 0.8rem 0.8rem}
+  .response{font-size:0.93rem}
   .send{width:42px;height:42px}
 }
 
