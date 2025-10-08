@@ -64,11 +64,11 @@ async function sendMessage() {
     if (response.ok) {
       addMessage(data.reply, "bot");
     } else {
-      addMessage("⚠️ Error: " + (data.error || "Unknown error"), "bot");
+      addMessage(" Error: " + (data.error || "Unknown error"), "bot");
     }
   } catch (error) {
     if (chatContainer.contains(thinking)) chatContainer.removeChild(thinking);
-    addMessage("⚠️ Error: " + error.message, "bot");
+    addMessage(" Error: " + error.message, "bot");
   }
 }
 
@@ -81,3 +81,4 @@ document.getElementById("userInput").addEventListener("keydown", (e) => {
     sendMessage();
   }
 });
+
