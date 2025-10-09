@@ -1,22 +1,4 @@
-
-const SECRET_KEY = "Z8fL3mQ1bR9xT7cD"; // Must match backend
 const WORKER_URL = "https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat";
-
-// ------------------------------
-// UTILITY: HMAC GENERATION
-// ------------------------------
-async function generateHMAC(secret, message) {
-  const enc = new TextEncoder();
-  const key = await crypto.subtle.importKey(
-    "raw",
-    enc.encode(secret),
-    { name: "HMAC", hash: "SHA-256" },
-    false,
-    ["sign"]
-  );
-  const signature = await crypto.subtle.sign("HMAC", key, enc.encode(message));
-  return btoa(String.fromCharCode(...new Uint8Array(signature))); // Base64 encode
-}
 
 // ------------------------------
 // CHAT UI SETUP
@@ -33,12 +15,13 @@ chatContainer.style.padding = "1rem";
 chatContainer.style.overflowY = "auto";
 chatContainer.style.scrollBehavior = "smooth";
 
-// Append chat container safely
 document.addEventListener("DOMContentLoaded", () => {
   (document.querySelector("main") || document.body).appendChild(chatContainer);
 });
 
-// Function to add messages
+// ------------------------------
+// ADD MESSAGE TO CHAT
+// ------------------------------
 function addMessage(text, type = "bot") {
   const msg = document.createElement("div");
   msg.textContent = text;
@@ -67,7 +50,7 @@ async function sendMessage() {
   addMessage(userMessage, "user");
   userInputEl.value = "";
 
-  // Show thinking
+  // Show "Thinking..."
   const thinking = document.createElement("div");
   thinking.textContent = "Thinking...";
   thinking.style.opacity = "0.7";
@@ -79,33 +62,24 @@ async function sendMessage() {
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
   try {
-    // Generate timestamp & HMAC
-    const timestamp = Date.now();
-    const message = `frontend-${timestamp}`;
-    const signature = await generateHMAC(SECRET_KEY, message);
-
-    // Send request
+    // Send simple JSON request
     const response = await fetch(WORKER_URL, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-Timestamp": timestamp.toString(),
-        "X-Signature": signature,
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: userMessage }),
     });
 
     const data = await response.json();
     chatContainer.removeChild(thinking);
 
-    if (response.ok) {
+    if (response.ok && data.reply) {
       addMessage(data.reply, "bot");
     } else {
-      addMessage(" Error: " + (data.error || "Unknown error"), "bot");
+      addMessage("Error: " + (data.error || "Unknown error"), "bot");
     }
   } catch (error) {
     if (chatContainer.contains(thinking)) chatContainer.removeChild(thinking);
-    addMessage(" Error: " + error.message, "bot");
+    addMessage("Error: " + error.message, "bot");
   }
 }
 
@@ -127,4 +101,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
