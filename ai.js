@@ -1,1 +1,133 @@
-const _0x434d0=_0x3d3a;(function(_0x32071f,_0x597d9c){const _0x3dc096=_0x3d3a,_0x12010a=_0x32071f();while(!![]){try{const _0xd9bc56=-parseInt(_0x3dc096(0x164))/0x1*(parseInt(_0x3dc096(0x16c))/0x2)+-parseInt(_0x3dc096(0x12c))/0x3*(parseInt(_0x3dc096(0x140))/0x4)+parseInt(_0x3dc096(0x15c))/0x5*(-parseInt(_0x3dc096(0x16f))/0x6)+-parseInt(_0x3dc096(0x178))/0x7+-parseInt(_0x3dc096(0x146))/0x8+-parseInt(_0x3dc096(0x136))/0x9*(parseInt(_0x3dc096(0x170))/0xa)+-parseInt(_0x3dc096(0x152))/0xb*(-parseInt(_0x3dc096(0x15e))/0xc);if(_0xd9bc56===_0x597d9c)break;else _0x12010a['push'](_0x12010a['shift']());}catch(_0x1fc92f){_0x12010a['push'](_0x12010a['shift']());}}}(_0x3b2c,0xa5722));const SECRET_KEY=_0x434d0(0x130),WORKER_URL=_0x434d0(0x14f);async function generateHMAC(_0x127775,_0x2873fe){const _0x3f7118=_0x434d0,_0x4198e0=new TextEncoder(),_0x54b1e2=await crypto[_0x3f7118(0x165)][_0x3f7118(0x138)]('raw',_0x4198e0[_0x3f7118(0x134)](_0x127775),{'name':_0x3f7118(0x179),'hash':_0x3f7118(0x169)},![],[_0x3f7118(0x162)]),_0x3c6cf0=await crypto[_0x3f7118(0x165)][_0x3f7118(0x162)](_0x3f7118(0x179),_0x54b1e2,_0x4198e0[_0x3f7118(0x134)](_0x2873fe));return btoa(String['fromCharCode'](...new Uint8Array(_0x3c6cf0)));}function _0x3b2c(){const _0x3206de=['flex-end','sendBtn','6411167CbEUIv','HMAC','0.7','bot','75%','var(--card)','color','\x20Error:\x20','9YMWXNf','keydown','var(--btn-text)','100%','Z8fL3mQ1bR9xT7cD','addEventListener','Enter','borderRadius','encode','0.75rem\x201rem','36wEsLSq','scrollBehavior','importKey','padding','background','scrollTop','column','div','key','Unknown\x20error','1295188zjydKQ','wordWrap','frontend-','error','1rem','getElementById','5758880uPEvyz','json','gap','textContent','var(--btn-bg)','flex','trim','now','margin','https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat','Thinking...','DOMContentLoaded','77pkrIAO','createElement','value','style','stringify','userInput','scrollHeight','whiteSpace','removeChild','appendChild','5HofgBj','body','10732404WuxXNP','0.75rem','pre-wrap','var(--text)','sign','smooth','1xWXrFa','subtle','main','reply','auto','SHA-256','user','application/json','2242732QEhqsc','POST','opacity','3709374KBJJID','3090440BOKBTr','click','flex-start','900px','alignSelf','maxWidth'];_0x3b2c=function(){return _0x3206de;};return _0x3b2c();}function _0x3d3a(_0x1d8ff9,_0x4d3c9d){const _0x3b2cff=_0x3b2c();return _0x3d3a=function(_0x3d3afd,_0x30ca1f){_0x3d3afd=_0x3d3afd-0x126;let _0x316fbb=_0x3b2cff[_0x3d3afd];return _0x316fbb;},_0x3d3a(_0x1d8ff9,_0x4d3c9d);}const chatContainer=document['createElement'](_0x434d0(0x13d));chatContainer[_0x434d0(0x155)][_0x434d0(0x175)]=_0x434d0(0x173),chatContainer[_0x434d0(0x155)]['width']=_0x434d0(0x12f),chatContainer[_0x434d0(0x155)][_0x434d0(0x14e)]='0\x20auto',chatContainer[_0x434d0(0x155)][_0x434d0(0x14b)]='1',chatContainer[_0x434d0(0x155)]['display']=_0x434d0(0x14b),chatContainer[_0x434d0(0x155)]['flexDirection']=_0x434d0(0x13c),chatContainer[_0x434d0(0x155)][_0x434d0(0x148)]=_0x434d0(0x15f),chatContainer['style'][_0x434d0(0x139)]=_0x434d0(0x144),chatContainer['style']['overflowY']=_0x434d0(0x168),chatContainer['style'][_0x434d0(0x137)]=_0x434d0(0x163),document[_0x434d0(0x131)](_0x434d0(0x151),()=>{const _0x576e34=_0x434d0;(document['querySelector'](_0x576e34(0x166))||document[_0x576e34(0x15d)])['appendChild'](chatContainer);});function addMessage(_0x525d58,_0x666426='bot'){const _0x3a49b7=_0x434d0,_0x3e8264=document[_0x3a49b7(0x153)](_0x3a49b7(0x13d));_0x3e8264['textContent']=_0x525d58,_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x139)]=_0x3a49b7(0x135),_0x3e8264[_0x3a49b7(0x155)]['borderRadius']=_0x3a49b7(0x15f),_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x175)]=_0x3a49b7(0x128),_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x141)]='break-word',_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x159)]=_0x3a49b7(0x160),_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x174)]=_0x666426===_0x3a49b7(0x16a)?_0x3a49b7(0x176):_0x3a49b7(0x172),_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x13a)]=_0x666426===_0x3a49b7(0x16a)?_0x3a49b7(0x14a):_0x3a49b7(0x129),_0x3e8264[_0x3a49b7(0x155)][_0x3a49b7(0x12a)]=_0x666426===_0x3a49b7(0x16a)?_0x3a49b7(0x12e):_0x3a49b7(0x161),chatContainer[_0x3a49b7(0x15b)](_0x3e8264),chatContainer['scrollTop']=chatContainer[_0x3a49b7(0x158)];}async function sendMessage(){const _0x46f93c=_0x434d0,_0x40531a=document[_0x46f93c(0x145)]('userInput');if(!_0x40531a)return;const _0x48ce09=_0x40531a[_0x46f93c(0x154)][_0x46f93c(0x14c)]();if(!_0x48ce09)return;addMessage(_0x48ce09,'user'),_0x40531a[_0x46f93c(0x154)]='';const _0x5034b0=document['createElement'](_0x46f93c(0x13d));_0x5034b0[_0x46f93c(0x149)]=_0x46f93c(0x150),_0x5034b0[_0x46f93c(0x155)][_0x46f93c(0x16e)]=_0x46f93c(0x126),_0x5034b0[_0x46f93c(0x155)][_0x46f93c(0x139)]='0.75rem\x201rem',_0x5034b0['style'][_0x46f93c(0x133)]=_0x46f93c(0x15f),_0x5034b0[_0x46f93c(0x155)][_0x46f93c(0x13a)]=_0x46f93c(0x129),_0x5034b0[_0x46f93c(0x155)][_0x46f93c(0x12a)]=_0x46f93c(0x161),chatContainer[_0x46f93c(0x15b)](_0x5034b0),chatContainer[_0x46f93c(0x13b)]=chatContainer[_0x46f93c(0x158)];try{const _0x177d04=Date[_0x46f93c(0x14d)](),_0x58798d=_0x46f93c(0x142)+_0x177d04,_0x1e9d3a=await generateHMAC(SECRET_KEY,_0x58798d),_0x105d40=await fetch(WORKER_URL,{'method':_0x46f93c(0x16d),'headers':{'Content-Type':_0x46f93c(0x16b),'X-Timestamp':_0x177d04['toString'](),'X-Signature':_0x1e9d3a},'body':JSON[_0x46f93c(0x156)]({'message':_0x48ce09})}),_0x522201=await _0x105d40[_0x46f93c(0x147)]();chatContainer[_0x46f93c(0x15a)](_0x5034b0),_0x105d40['ok']?addMessage(_0x522201[_0x46f93c(0x167)],_0x46f93c(0x127)):addMessage(_0x46f93c(0x12b)+(_0x522201[_0x46f93c(0x143)]||_0x46f93c(0x13f)),_0x46f93c(0x127));}catch(_0x5351e3){if(chatContainer['contains'](_0x5034b0))chatContainer[_0x46f93c(0x15a)](_0x5034b0);addMessage(_0x46f93c(0x12b)+_0x5351e3['message'],'bot');}}document[_0x434d0(0x131)](_0x434d0(0x151),()=>{const _0x43a763=_0x434d0,_0x102d99=document['getElementById'](_0x43a763(0x177)),_0x3a0bf4=document[_0x43a763(0x145)](_0x43a763(0x157));if(_0x102d99)_0x102d99[_0x43a763(0x131)](_0x43a763(0x171),sendMessage);_0x3a0bf4&&_0x3a0bf4[_0x43a763(0x131)](_0x43a763(0x12d),_0x501420=>{const _0x3e6bdf=_0x43a763;_0x501420[_0x3e6bdf(0x13e)]===_0x3e6bdf(0x132)&&!_0x501420['shiftKey']&&(_0x501420['preventDefault'](),sendMessage());});});
+// ai.js — Full Frontend with HMAC and working send button
+
+// ------------------------------
+// CONFIG
+// ------------------------------
+const SECRET_KEY = "Z8fL3mQ1bR9xT7cD"; // Must match backend
+const WORKER_URL = "https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat";
+
+// ------------------------------
+// UTILITY: HMAC GENERATION
+// ------------------------------
+async function generateHMAC(secret, message) {
+  const enc = new TextEncoder();
+  const key = await crypto.subtle.importKey(
+    "raw",
+    enc.encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, enc.encode(message));
+  return btoa(String.fromCharCode(...new Uint8Array(signature))); // Base64 encode
+}
+
+// ------------------------------
+// CHAT UI SETUP
+// ------------------------------
+const chatContainer = document.createElement("div");
+chatContainer.style.maxWidth = "900px";
+chatContainer.style.width = "100%";
+chatContainer.style.margin = "0 auto";
+chatContainer.style.flex = "1";
+chatContainer.style.display = "flex";
+chatContainer.style.flexDirection = "column";
+chatContainer.style.gap = "0.75rem";
+chatContainer.style.padding = "1rem";
+chatContainer.style.overflowY = "auto";
+chatContainer.style.scrollBehavior = "smooth";
+
+// Append chat container safely
+document.addEventListener("DOMContentLoaded", () => {
+  (document.querySelector("main") || document.body).appendChild(chatContainer);
+});
+
+// Function to add messages
+function addMessage(text, type = "bot") {
+  const msg = document.createElement("div");
+  msg.textContent = text;
+  msg.style.padding = "0.75rem 1rem";
+  msg.style.borderRadius = "0.75rem";
+  msg.style.maxWidth = "75%";
+  msg.style.wordWrap = "break-word";
+  msg.style.whiteSpace = "pre-wrap";
+  msg.style.alignSelf = type === "user" ? "flex-end" : "flex-start";
+  msg.style.background = type === "user" ? "var(--btn-bg)" : "var(--card)";
+  msg.style.color = type === "user" ? "var(--btn-text)" : "var(--text)";
+  chatContainer.appendChild(msg);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+}
+
+// ------------------------------
+// SEND MESSAGE
+// ------------------------------
+async function sendMessage() {
+  const userInputEl = document.getElementById("userInput");
+  if (!userInputEl) return;
+
+  const userMessage = userInputEl.value.trim();
+  if (!userMessage) return;
+
+  addMessage(userMessage, "user");
+  userInputEl.value = "";
+
+  // Show thinking
+  const thinking = document.createElement("div");
+  thinking.textContent = "Thinking...";
+  thinking.style.opacity = "0.7";
+  thinking.style.padding = "0.75rem 1rem";
+  thinking.style.borderRadius = "0.75rem";
+  thinking.style.background = "var(--card)";
+  thinking.style.color = "var(--text)";
+  chatContainer.appendChild(thinking);
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+
+  try {
+    // Generate timestamp & HMAC
+    const timestamp = Date.now();
+    const message = `frontend-${timestamp}`;
+    const signature = await generateHMAC(SECRET_KEY, message);
+
+    // Send request
+    const response = await fetch(WORKER_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Timestamp": timestamp.toString(),
+        "X-Signature": signature,
+      },
+      body: JSON.stringify({ message: userMessage }),
+    });
+
+    const data = await response.json();
+    chatContainer.removeChild(thinking);
+
+    if (response.ok) {
+      addMessage(data.reply, "bot");
+    } else {
+      addMessage(" Error: " + (data.error || "Unknown error"), "bot");
+    }
+  } catch (error) {
+    if (chatContainer.contains(thinking)) chatContainer.removeChild(thinking);
+    addMessage(" Error: " + error.message, "bot");
+  }
+}
+
+// ------------------------------
+// EVENT LISTENERS
+// ------------------------------
+document.addEventListener("DOMContentLoaded", () => {
+  const sendBtn = document.getElementById("sendBtn");
+  const userInput = document.getElementById("userInput");
+
+  if (sendBtn) sendBtn.addEventListener("click", sendMessage);
+
+  if (userInput) {
+    userInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !e.shiftKey) {
+        e.preventDefault();
+        sendMessage();
+      }
+    });
+  }
+});
