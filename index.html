@@ -62,7 +62,7 @@ header{
 button{cursor:pointer;border:none;border-radius:10px;padding:.55rem .9rem;font-weight:600;transition:transform .12s ease,opacity .12s ease}
 button:active{transform:translateY(1px)}
 
-/* Updated New Chat Button */
+/* New Chat Button */
 .new-chat {
     background: var(--btn-text);
     color: var(--btn-bg);
@@ -99,13 +99,13 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;align-item
 .welcome h1{font-size:2.4rem;margin-bottom:.6rem}
 .welcome p{color:var(--text);font-size:1.05rem;max-width:700px;line-height:1.6;margin:0 auto .9rem}
 .welcome img{margin-top:1rem;width:240px;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-.welcome a{color:#1a73e8;text-decoration:none;margin:0 .25rem;}
+.welcome a{color:#000;text-decoration:none;margin:0 .25rem; font-weight:500;}
 .welcome a:hover{text-decoration:underline;}
 
-/* Social icons with name */
+/* Social icons with single name */
 .social-icons{display:flex;gap:0.5rem;align-items:center;justify-content:center;margin-top:0.25rem;}
-.social-icons a{font-size:1.25rem;color:#1a73e8;transition:color .25s; display:flex; align-items:center; gap:0.25rem;}
-.social-icons a:hover{color:#0a58ca;}
+.social-icons a{font-size:1.25rem;color:#000; transition:color .25s; display:flex; align-items:center; gap:0.25rem;}
+.social-icons a:hover{color:#333;}
 
 /* Response text */
 .response {
@@ -231,12 +231,9 @@ button:focus, .theme-toggle:focus, .send:focus, .new-chat:focus{outline:3px soli
     <p>
       <strong>Developed by:</strong> 
       <span class="social-icons">
-        <a href="https://www.linkedin.com/in/sarthak-aganja-899026166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>  Sarthak Aganja
-        </a>
-        <a href="https://www.facebook.com/sarthak.er" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-          <i class="fab fa-facebook"></i>
-        </a>
+        <i class="fab fa-linkedin"></i>
+        <i class="fab fa-facebook"></i>
+        Sarthak Aganja
       </span>
     </p>
     <img src="image2.png" alt="Hulas Assistant Illustration">
@@ -296,4 +293,3 @@ userInput.addEventListener('keydown',(e)=>{
 <script type="module" src="ai.js"></script>
 </body>
 </html>
-
