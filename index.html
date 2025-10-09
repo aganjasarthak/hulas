@@ -59,7 +59,7 @@ header{
 button{cursor:pointer;border:none;border-radius:10px;padding:.55rem .9rem;font-weight:600;transition:transform .12s ease,opacity .12s ease}
 button:active{transform:translateY(1px)}
 
-/* ✅ Updated New Chat Button */
+/* Updated New Chat Button */
 .new-chat {
   background: var(--btn-text);
   color: var(--btn-bg);
@@ -93,12 +93,11 @@ button:active{transform:translateY(1px)}
 main{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:2.25rem var(--gutter);}
 .welcome{transition:opacity .5s ease,visibility .5s ease;max-width:900px}
 .welcome.hide{opacity:0;visibility:hidden;height:0;padding:0;margin:0}
-/* Keep welcome section font size fixed as before */
 .welcome h1{font-size:2.4rem;margin-bottom:.6rem}
 .welcome p{color:var(--text);font-size:1.05rem;max-width:700px;line-height:1.6;margin:0 auto .9rem}
 .welcome img{margin-top:1rem;width:240px;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
 
-/* ✅ Response text (AI output placeholder for future use) */
+/* Response text */
 .response {
   font-size: 1rem;
   line-height: 1.6;
@@ -197,7 +196,7 @@ textarea:focus{outline:none;box-shadow:0 6px 18px rgba(0,0,0,0.06)}
 button:focus, .theme-toggle:focus, .send:focus, .new-chat:focus{outline:3px solid rgba(0,120,210,0.12);outline-offset:2px}
 </style>
 </head>
-<body>
+<body class="dark">
 <header>
   <div class="logo-container">
     <img src="1black.png" class="logo light-logo" alt="Hulas Group Logo">
@@ -247,8 +246,8 @@ const sendBtn=document.getElementById('sendBtn');
 const userInput=document.getElementById('userInput');
 
 // Apply saved theme
-if(localStorage.getItem('theme')==='dark'){
-  body.classList.add('dark');
+if(localStorage.getItem('theme')==='light'){
+  body.classList.remove('dark');
 }
 
 // Toggle theme
@@ -281,4 +280,3 @@ userInput.addEventListener('keydown',(e)=>{
 <script type="module" src="ai.js"></script>
 </body>
 </html>
-
