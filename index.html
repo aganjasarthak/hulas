@@ -5,6 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hulas Group AI Assistant</title>
 <link rel="icon" type="image/png" href="image2.png">
+
+<!-- Font Awesome for social icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <style>
 /* Reset & base */
 *{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -95,8 +99,12 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;align-item
 .welcome h1{font-size:2.4rem;margin-bottom:.6rem}
 .welcome p{color:var(--text);font-size:1.05rem;max-width:700px;line-height:1.6;margin:0 auto .9rem}
 .welcome img{margin-top:1rem;width:240px;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-.welcome a{color:#1a73e8;text-decoration:none;}
+.welcome a{color:#1a73e8;text-decoration:none;margin:0 .25rem;}
 .welcome a:hover{text-decoration:underline;}
+
+/* Social icons */
+.social-icons a{font-size:1.25rem;color:#1a73e8;margin:0 .25rem;transition:color .25s;}
+.social-icons a:hover{color:#0a58ca;}
 
 /* Response text */
 .response {
@@ -221,8 +229,10 @@ button:focus, .theme-toggle:focus, .send:focus, .new-chat:focus{outline:3px soli
     </p>
     <p>
       <strong>Developed by:</strong> 
-      <a href="https://www.linkedin.com/in/sarthak-aganja-899026166/" target="_blank" rel="noopener noreferrer">Sarthak Aganja (LinkedIn)</a> | 
-      <a href="https://www.facebook.com/sarthak.er" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <span class="social-icons">
+        <a href="https://www.linkedin.com/in/sarthak-aganja-899026166/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.facebook.com/sarthak.er" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </span>
     </p>
     <img src="image2.png" alt="Hulas Assistant Illustration">
   </div>
