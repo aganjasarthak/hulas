@@ -1,8 +1,4 @@
-// ai.js — Full Frontend with HMAC and working send button
 
-// ------------------------------
-// CONFIG
-// ------------------------------
 const SECRET_KEY = "Z8fL3mQ1bR9xT7cD"; // Must match backend
 const WORKER_URL = "https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat";
 
@@ -131,3 +127,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
