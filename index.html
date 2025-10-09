@@ -35,6 +35,7 @@ html { font-size: clamp(14px, 1.8vw, 17px); }
     --btn-text:#ffffff;
     --header-height:84px;
     --gutter:1rem;
+    --social-icon-color: black;
 }
 
 .dark{
@@ -45,6 +46,7 @@ html { font-size: clamp(14px, 1.8vw, 17px); }
     --input-bg:#2d2d2d;
     --btn-bg:#ececec;
     --btn-text:#0d0d0d;
+    --social-icon-color: white;
 }
 
 /* Header */
@@ -99,13 +101,13 @@ main{flex:1;display:flex;flex-direction:column;justify-content:center;align-item
 .welcome h1{font-size:2.4rem;margin-bottom:.6rem}
 .welcome p{color:var(--text);font-size:1.05rem;max-width:700px;line-height:1.6;margin:0 auto .9rem}
 .welcome img{margin-top:1rem;width:240px;height:auto;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.08)}
-.welcome a{color:#1a73e8;text-decoration:none;margin:0 .25rem;}
+.welcome a{color:var(--social-icon-color);text-decoration:none;margin:0 .25rem;}
 .welcome a:hover{text-decoration:underline;}
 
 /* Social icons with single name */
 .social-icons{display:flex;gap:0.5rem;align-items:center;justify-content:center;margin-top:0.25rem;}
-.social-icons a{font-size:1.25rem;color:black;transition:color .25s; display:flex; align-items:center; gap:0.25rem;}
-.social-icons a:hover{color:black;}
+.social-icons a{font-size:1.25rem;color:var(--social-icon-color);transition:color .25s; display:flex; align-items:center; gap:0.25rem;}
+.social-icons span.name{color:var(--text); font-weight:600;}
 
 /* Response text */
 .response {
@@ -237,7 +239,7 @@ button:focus, .theme-toggle:focus, .send:focus, .new-chat:focus{outline:3px soli
         <a href="https://www.facebook.com/sarthak.er" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
           <i class="fab fa-facebook"></i>
         </a>
-        Sarthak Aganja
+        <span class="name">Sarthak Aganja</span>
       </span>
     </p>
     <img src="image2.png" alt="Hulas Assistant Illustration">
