@@ -1,4 +1,4 @@
-const WORKER_URL = "https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat";
+const WORKER_URL = "https://aganjasarthak.sarthak-aaganja12.workers.dev/chat";
 
 // ------------------------------
 // CHAT UI SETUP changed 
@@ -101,3 +101,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
