@@ -1,7 +1,7 @@
 const WORKER_URL = "https://mute-recipe-f796.sarthak-aaganja12.workers.dev/chat";
 
 // ------------------------------
-// CHAT UI SETUP
+// CHAT UI SETUP changed 
 // ------------------------------
 const chatContainer = document.createElement("div");
 chatContainer.style.maxWidth = "900px";
@@ -73,7 +73,7 @@ async function sendMessage() {
     chatContainer.removeChild(thinking);
 
     if (response.ok && data.reply) {
-      addMessage(data.reply, "bot");
+      addMessage(data.reply.replace(/\*/g, ""), "bot"); // removes all '*' from reply
     } else {
       addMessage("Error: " + (data.error || "Unknown error"), "bot");
     }
