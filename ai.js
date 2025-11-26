@@ -2,7 +2,7 @@ const WORKER_URL = "https://aganjasarthak.sarthak-aaganja12.workers.dev/chat";
 const FALLBACK_URL = "https://check-back.onrender.com/api/generate";
 
 // ------------------------------
-// CHAT UI SETUP 
+// CHAT UI SETUP
 // ------------------------------
 const chatContainer = document.createElement("div");
 chatContainer.style.maxWidth = "900px";
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // ------------------------------
-// ADD MESSAGE TO CHAT
+// ADD MESSAGE
 // ------------------------------
 function addMessage(text, type = "bot") {
   const msg = document.createElement("div");
@@ -39,30 +39,31 @@ function addMessage(text, type = "bot") {
 }
 
 // ------------------------------
-// SEND MESSAGE (WITH FALLBACK)
+// SEND REQUEST HELPERS
 // ------------------------------
 async function sendToPrimary(message) {
-  const response = await fetch(WORKER_URL, {
+  const res = await fetch(WORKER_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ message })
   });
-
-  const data = await response.json();
-  return { ok: response.ok, data };
+  const json = await res.json();
+  return { ok: res.ok, data: json };
 }
 
 async function sendToFallback(message) {
-  const response = await fetch(FALLBACK_URL, {
+  const res = await fetch(FALLBACK_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ userMessage: message })
   });
-
-  const data = await response.json();
-  return { ok: response.ok, data: { reply: data.response } };
+  const json = await res.json();
+  return { ok: res.ok, data: { reply: json.response } };
 }
 
+// ------------------------------
+// MAIN SEND MESSAGE LOGIC
+// ------------------------------
 async function sendMessage() {
   const userInputEl = document.getElementById("userInput");
   if (!userInputEl) return;
@@ -73,7 +74,7 @@ async function sendMessage() {
   addMessage(userMessage, "user");
   userInputEl.value = "";
 
-  // "Thinking..."
+  // Thinking...
   const thinking = document.createElement("div");
   thinking.textContent = "Thinking...";
   thinking.style.opacity = "0.7";
@@ -85,14 +86,15 @@ async function sendMessage() {
   chatContainer.scrollTop = chatContainer.scrollHeight;
 
   try {
-    // ---- TRY PRIMARY AI ENDPOINT ----
+    // PRIMARY REQUEST
     let result = await sendToPrimary(userMessage);
 
+    // ✅ Detect “Resources exhausted” EVEN IF inside data.error
     const exhausted =
-      result.data?.reply?.includes("Resources exhausted") ||
-      result.data?.error?.includes("Resources exhausted");
+      result.data?.error?.toLowerCase().includes("exhausted") ||
+      result.data?.reply?.toLowerCase().includes("exhausted");
 
-    // ---- FALLBACK IF NEEDED ----
+    // FALLBACK if primary fails OR exhausted
     if (!result.ok || exhausted) {
       result = await sendToFallback(userMessage);
     }
@@ -104,7 +106,6 @@ async function sendMessage() {
     } else {
       addMessage("Error: " + (result.data.error || "Unknown error"), "bot");
     }
-
   } catch (error) {
     if (chatContainer.contains(thinking)) chatContainer.removeChild(thinking);
     addMessage("Error: " + error.message, "bot");
@@ -112,7 +113,7 @@ async function sendMessage() {
 }
 
 // ------------------------------
-// EVENT LISTENERS
+// EVENTS
 // ------------------------------
 document.addEventListener("DOMContentLoaded", () => {
   const sendBtn = document.getElementById("sendBtn");
