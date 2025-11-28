@@ -1,5 +1,5 @@
 const WORKER_URL = "https://aganjasarthak.sarthak-aaganja12.workers.dev/chat";
-const FALLBACK_URL = "https://check-back.onrender.com/api/generate";
+const FALLBACK_URL = "https://api.aganjasarthak.com.np/api/generate";
 
 // ------------------------------
 // CHAT UI SETUP
@@ -130,3 +130,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
