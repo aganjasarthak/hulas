@@ -1,3 +1,5 @@
+FineTuned Model :NVIDIA: Nemotron 3 Nano 30B A3B 
+
 Hulas Infra
 
 Email: info@hulasinfra.com
